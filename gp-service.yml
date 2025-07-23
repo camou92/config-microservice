@@ -1,0 +1,65 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5433/db_gp
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8082
+
+---
+# test config
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    show-sql: true
+
+  main:
+    allow-bean-definition-overriding: true
+
+  # Désactiver la sécurité pour les tests
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://test-disabled"
+
+aws:
+  s3:
+    mock: true
+    access: test-access
+    secret: test-secret
+    region: test-region
+    bucket: test-bucket
+
+logging:
+  level:
+    root: WARN
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
