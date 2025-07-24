@@ -29,16 +29,3 @@ spring:
             uri: lb://IMMO-SERVICE
             predicates:
               - Path=/immo-service/**
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html   # ✅ À AJOUTER
-    urls:
-      - name: business-service
-        url: /business-service/v3/api-docs
-      - name: gp-service
-        url: /gp-service/v3/api-docs
-      - name: ecom-service
-        url: /ecom-service/v3/api-docs
-      - name: immo-service
-        url: /immo-service/v3/api-docs
