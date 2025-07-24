@@ -29,4 +29,7 @@ spring:
             uri: lb://IMMO-SERVICE
             predicates:
               - Path=/immo-service/**
-
+springdoc:
+  swagger-ui:
+    url: /swagger-config
+    path: /swagger-ui.html

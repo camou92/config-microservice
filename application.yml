@@ -34,7 +34,6 @@ springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
-    url: /swagger-config
     path: /swagger-ui.html
     oauth:
       client-id: rootsandgo-client
