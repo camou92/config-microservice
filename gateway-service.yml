@@ -30,7 +30,3 @@ spring:
             predicates:
               - Path=/immo-service/**
 
-springdoc:
-  swagger-ui:
-    url: /swagger-config
-    path: /swagger-ui.html
