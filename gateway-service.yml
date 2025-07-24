@@ -34,12 +34,3 @@ springdoc:
   swagger-ui:
     url: /swagger-config
     path: /swagger-ui.html
-    urls:
-      - name: business-service
-        url: /business-service/v3/api-docs
-      - name: gp-service
-        url: /gp-service/v3/api-docs
-      - name: ecom-service
-        url: /ecom-service/v3/api-docs
-      - name: immo-service
-        url: /immo-service/v3/api-docs
