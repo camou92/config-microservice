@@ -31,6 +31,8 @@ logging:
 
 springdoc:
   default-produces-media-type: application/json
+  api-docs:
+    path: /v3/api-docs
   swagger-ui:
     oauth:
       client-id: rootsandgo-client
