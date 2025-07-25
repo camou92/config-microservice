@@ -16,7 +16,7 @@ spring:
     endpoints:
       web:
         exposure:
-          include: *
+          include: "*"
     metrics:
       distribution:
         percentiles-histogram:
