@@ -48,5 +48,3 @@ springdoc:
       client-id: rootsandgo-client
       use-basic-authentication-with-access-code-grant: true
     persistAuthorization: true
-loki:
-  url: http://localhost:3100/loki/api/v1/push

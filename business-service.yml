@@ -1,21 +1,25 @@
+spring:
+  profiles:
+    active: dev
+
 server:
   port: 8081
 
 # dev config
+---
 spring:
+  config:
+    activate:
+      on-profile: dev
   management:
     observations:
       key-values:
         application: business-service
-  config:
-    activate:
-      on-profile: dev
   datasource:
     url: jdbc:postgresql://localhost:5434/db_business
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -32,8 +36,9 @@ aws:
     secret: ${secret}
     region: eu-north-1
     bucket: roots-business
----
+
 # test config
+---
 spring:
   config:
     activate:
@@ -51,11 +56,8 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
     show-sql: true
-
   main:
     allow-bean-definition-overriding: true
-
-  # Désactiver la sécurité pour les tests
   security:
     oauth2:
       resourceserver:
@@ -69,11 +71,3 @@ aws:
     secret: test-secret
     region: test-region
     bucket: test-bucket
-
-logging:
-  level:
-    root: WARN
-    org.springframework: INFO
-    org.hibernate.SQL: DEBUG
-
-
