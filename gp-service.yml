@@ -1,4 +1,8 @@
 spring:
+  management:
+    observations:
+      key-values:
+        application: gp-service
   config:
     activate:
       on-profile: dev

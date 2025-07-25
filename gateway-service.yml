@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  management:
+    observations:
+      key-values:
+        application: gateway-service
   application:
     name: gateway-service
 

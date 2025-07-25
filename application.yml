@@ -16,7 +16,16 @@ spring:
     endpoints:
       web:
         exposure:
-          include: health, refresh
+          include: *
+    metrics:
+      distribution:
+        percentiles-histogram:
+          http:
+            server:
+              requests: true
+    tracing:
+      sampling:
+        probability: 1.0
 
   security:
     oauth2:
@@ -39,3 +48,5 @@ springdoc:
       client-id: rootsandgo-client
       use-basic-authentication-with-access-code-grant: true
     persistAuthorization: true
+loki:
+  url: http://localhost:3100/loki/api/v1/push

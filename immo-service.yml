@@ -3,6 +3,10 @@ server:
 
 # dev config
 spring:
+  management:
+    observations:
+      key-values:
+        application: immo-service
   config:
     activate:
       on-profile: dev
