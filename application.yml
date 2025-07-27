@@ -34,6 +34,10 @@ spring:
           issuer-uri: "http://keycloak:8080/realms/rootsandgo-realm"
 
 
+logging:
+  level:
+    org.springframework.security: DEBUG
+
 springdoc:
   default-produces-media-type: application/json
   api-docs:
