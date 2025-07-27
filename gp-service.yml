@@ -7,7 +7,7 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:postgresql://localhost:5433/db_gp
+    url: jdbc:postgresql://postgres-gp:5432/db_gp
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
