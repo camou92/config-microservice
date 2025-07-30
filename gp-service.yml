@@ -35,6 +35,13 @@ spring:
     port: 6379
     timeout: 2000
 
+aws:
+  s3:
+    access: ${access}
+    secret: ${secret}
+    region: eu-north-1
+    bucket: roots-profile
+
 server:
   port: 8082
 
