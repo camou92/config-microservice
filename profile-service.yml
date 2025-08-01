@@ -1,0 +1,90 @@
+spring:
+  management:
+    observations:
+      key-values:
+        application: profile-service
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5437/db_profile
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  # Caching avec Redis
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000 # 10 minutes en millisecondes
+      key-prefix: "gp-service::"
+      cache-null-values: false
+      use-key-prefix: true
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000
+
+aws:
+  s3:
+    access: ${access}
+    secret: ${secret}
+    region: eu-north-1
+    bucket: roots-profile
+
+server:
+  port: 8086
+
+---
+# test config
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    show-sql: true
+
+  main:
+    allow-bean-definition-overriding: true
+
+  # Désactiver la sécurité pour les tests
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://test-disabled"
+
+aws:
+  s3:
+    mock: true
+    access: test-access
+    secret: test-secret
+    region: test-region
+    bucket: test-bucket
+
+logging:
+  level:
+    root: WARN
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
