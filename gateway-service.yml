@@ -11,10 +11,6 @@ spring:
 
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
       mvc:
         routes:
           - id: r1
@@ -33,6 +29,10 @@ spring:
             uri: lb://IMMO-SERVICE
             predicates:
               - Path=/immo-service/**
+          - id: r5
+            uri: lb://PROFILE-SERVICE
+            predicates:
+              - Path=/profile-service/**
 springdoc:
   swagger-ui:
     url: /swagger-config
