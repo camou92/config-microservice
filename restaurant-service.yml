@@ -40,7 +40,7 @@ aws:
     access: ${access}
     secret: ${secret}
     region: eu-north-1
-    bucket: roots-profile
+    bucket: roots-resto
 
 server:
   port: 8087
