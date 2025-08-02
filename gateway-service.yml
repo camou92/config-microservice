@@ -30,6 +30,11 @@ spring:
             uri: lb://PROFILE-SERVICE
             predicates:
               - Path=/profile-service/**
+          - id: r6
+            uri: lb://RESTAURANT-SERVICE
+            predicates:
+              - Path=/restaurant-service/**
+
 springdoc:
   swagger-ui:
     url: /swagger-config
